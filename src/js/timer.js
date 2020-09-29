@@ -18,14 +18,10 @@ export class CountdownTimer {
   calculate() {
     const currentDate = new Date();
     const totalSeconds = (this.targetDate - currentDate) / 1000;
-    const days = Math.floor(totalSeconds / 3600 / 24);
-    const hours = this.formatTime(Math.floor((totalSeconds / 3600) % 24));
-    const minutes = this.formatTime(Math.floor((totalSeconds / 60) % 60));
-    const seconds = this.formatTime(Math.floor(totalSeconds % 60));
-    this.valueDays.textContent = days;
-    this.valueHours.textContent = hours;
-    this.valueMinutes.textContent = minutes;
-    this.valueSeconds.textContent = seconds;
+    this.valueDays.textContent = Math.floor(totalSeconds / 3600 / 24);
+    this.valueHours.textContent = this.formatTime(Math.floor((totalSeconds / 3600) % 24));
+    this.valueMinutes.textContent = this.formatTime(Math.floor((totalSeconds / 60) % 60));
+    this.valueSeconds.textContent = this.formatTime(Math.floor(totalSeconds % 60));
   }
 
   formatTime(time) {
